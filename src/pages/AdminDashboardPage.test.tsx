@@ -14,7 +14,9 @@ const OVERVIEW: OperationsOverview = {
       key: 'verifications',
       label: 'Doctor verifications',
       count: 3,
-      oldestAt: '2026-11-17T12:00:00.000Z',
+      // Relative to now, so the "2 days" assertion does not drift with the
+      // calendar the way a fixed date would.
+      oldestAt: new Date(Date.now() - 2.5 * 86_400_000).toISOString(),
       href: '/admin/verifications',
       available: true,
     },
